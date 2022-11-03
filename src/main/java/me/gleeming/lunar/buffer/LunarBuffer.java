@@ -12,7 +12,6 @@ public class LunarBuffer {
 
     private final ByteBuf buffer = Unpooled.buffer();
 
-
     /**
      * Appends the integer to the buffer
      * @param num Number

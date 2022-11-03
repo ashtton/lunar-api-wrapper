@@ -19,10 +19,7 @@ public class LunarWrapper {
     public static void register(Plugin plugin) {
         LunarWrapper.plugin = plugin;
 
-        plugin.getServer().getMessenger().registerIncomingPluginChannel(plugin, "Lunar-Client", (s, player, bytes) -> {
-
-        });
-
+        plugin.getServer().getMessenger().registerIncomingPluginChannel(plugin, "Lunar-Client", (s, player, bytes) -> {});
         plugin.getServer().getMessenger().registerOutgoingPluginChannel(plugin, "Lunar-Client");
     }
 
