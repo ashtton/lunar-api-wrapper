@@ -29,6 +29,16 @@ public class LunarBuffer {
     }
 
     /**
+     * Appends the long to the buffer
+     * @param num Number
+     * @return Lunar Buffer
+     */
+    public LunarBuffer append(long num) {
+        buffer.writeLong(num);
+        return this;
+    }
+
+    /**
      * Appends the string to the buffer
      * @param str String
      * @return Lunar Buffer
