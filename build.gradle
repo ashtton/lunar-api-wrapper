@@ -1,0 +1,71 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'io.freefair.lombok' version '6.5.1'
+}
+
+def properties = new Properties()
+file("maven.cred").withInputStream {
+    properties.load(it)
+}
+
+group 'me.gleeming.lunar'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven {
+        url 'https://repo.codemc.io/repository/maven-snapshots/'
+    }
+
+    maven {
+        url = 'https://maven.athenstudios.net/repository/athen-studios-minecraft/'
+        credentials {
+            username properties.get("username")
+            password properties.get("password")
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'net.athenstudios.spoon:server:1.8.8-R0.2-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+publishing {
+    repositories {
+        maven {
+            url = 'https://maven.athenstudios.net/repository/athen-studios-minecraft/'
+            credentials {
+                username properties.get("username")
+                password properties.get("password")
+            }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+            }
+        }
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
