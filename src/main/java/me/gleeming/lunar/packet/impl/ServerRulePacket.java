@@ -21,6 +21,8 @@ public class ServerRulePacket extends LunarPacket {
         if (rule == ServerRule.MINIMAP_STATUS)
             return buffer.append(booleanValue ? "NEUTRAL" : "FORCED_OFF");
         buffer.append(booleanValue);
+        buffer.getBuffer().writeInt(0);
+        buffer.getBuffer().writeFloat(0);
         return buffer;
     }
 }

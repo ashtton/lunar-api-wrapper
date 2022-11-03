@@ -14,11 +14,11 @@ import java.util.UUID;
 public class WaypointCreatePacket extends LunarPacket {
 
     private final String name;
+    private final String world;
     private final int x;
     private final int y;
     private final int z;
-    private final String world;
-    private final Color color;
+    private final int color;
     private final boolean forced;
     private final boolean visible;
 
@@ -26,10 +26,10 @@ public class WaypointCreatePacket extends LunarPacket {
     public LunarBuffer applyValues(LunarBuffer buffer) {
         buffer.append(name);
         buffer.append(world);
-        buffer.append(color.getRGB());
-        buffer.append(x);
-        buffer.append(y);
-        buffer.append(z);
+        buffer.getBuffer().writeInt(color);
+        buffer.getBuffer().writeInt(x);
+        buffer.getBuffer().writeInt(y);
+        buffer.getBuffer().writeInt(z);
         buffer.append(forced);
         buffer.append(visible);
 

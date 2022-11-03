@@ -1,7 +1,9 @@
 package me.gleeming.lunar.mod;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 public enum ServerRule {
 
     /**
@@ -42,9 +44,5 @@ public enum ServerRule {
     LEGACY_COMBAT("legacyCombat");
 
     @Getter private final String name;
-
-    ServerRule(String name) {
-        this.name = name;
-    }
 
 }

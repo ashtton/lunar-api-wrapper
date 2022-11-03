@@ -27,6 +27,8 @@ public class LunarBuffer {
         return this;
     }
 
+
+
     /**
      * Appends the long to the buffer
      * @param num Number

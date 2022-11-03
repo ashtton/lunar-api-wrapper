@@ -18,9 +18,7 @@ public class ModSettingsBuilder {
     public String create() {
 
         ModSettings.ModSetting disabled = new ModSettings.ModSetting(false, new HashMap<>());
-
         ModSettings modSettings = new ModSettings();
-
         disabledMods.forEach(mod -> modSettings.addModSetting(mod, disabled));
 
         return ModSettings.GSON.toJson(modSettings);

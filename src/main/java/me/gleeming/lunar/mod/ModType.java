@@ -1,7 +1,9 @@
 package me.gleeming.lunar.mod;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 public enum ModType {
 
     LEGACY_VISUALS("one_seven_visuals"),
@@ -50,9 +52,5 @@ public enum ModType {
     NICK_HIDER("nickHider");
 
     @Getter private final String name;
-
-    ModType(String name) {
-        this.name = name;
-    }
 
 }
