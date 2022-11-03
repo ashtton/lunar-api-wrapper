@@ -39,6 +39,16 @@ public class LunarBuffer {
     }
 
     /**
+     * Appends the double to the buffer
+     * @param num Number
+     * @return Lunar Buffer
+     */
+    public LunarBuffer append(double num) {
+        buffer.writeDouble(num);
+        return this;
+    }
+
+    /**
      * Appends the string to the buffer
      * @param str String
      * @return Lunar Buffer
