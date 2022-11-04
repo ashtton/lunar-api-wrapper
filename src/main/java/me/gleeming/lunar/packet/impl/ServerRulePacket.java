@@ -19,10 +19,13 @@ public class ServerRulePacket extends LunarPacket {
     public LunarBuffer applyValues(LunarBuffer buffer) {
         buffer.append(rule.getName());
         if (rule == ServerRule.MINIMAP_STATUS)
-            return buffer.append(booleanValue ? "NEUTRAL" : "FORCED_OFF");
-        buffer.append(booleanValue);
+            buffer.append(booleanValue ? "NEUTRAL" : "FORCED_OFF");
+        else {
+            buffer.append(booleanValue);
+        }
         buffer.getBuffer().writeInt(0);
         buffer.getBuffer().writeFloat(0);
+        buffer.append("");
         return buffer;
     }
 }
